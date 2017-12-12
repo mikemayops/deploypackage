@@ -78,7 +78,7 @@ Function Monitor-Jobs {
     Write-Output "[$($env:USERNAME)]: $(get-date) - All jobs finished. Find job details here:`n $(Out-String -InputObject $FailedJobs)"  | Out-File -FilePath "$LogDir\0_PsDeployLog.log" -Append -Force
     Get-Job | Remove-job
 }
-Function Deploy-Application {
+Function Deploy-Package {
     [CmdletBinding()]
     
     Param (
@@ -306,4 +306,4 @@ $params = @{
     Credential = (Get-Credential -Message "Please provide your `"Administrator`" credentials:")
 }
 
-Deploy-Application @params -verbose
+Deploy-Package @params -verbose
